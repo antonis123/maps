@@ -1,0 +1,68 @@
+{% extends "base.html" %} 
+{% block pagetitle %}desurbs:crime{% endblock pagetitle %} 
+{% block css-extra %}
+<link rel="stylesheet" href="{{ STATIC_URL }}leaflet.css" />
+<link rel="stylesheet" href="{{ STATIC_URL }}css/police.css" />
+<link rel="stylesheet" href="{{ STATIC_URL }}jqplot/jquery.jqplot.min.css" />
+{% endblock css-extra %}
+
+{% block content %}
+<div class="container">
+	<div class="row-fluid">
+		<div id="maindiv" class="span12">
+			<div class="row-fluid">
+				<div id="mapdiv" class="span12"></div>
+			</div>
+			<div class="row-fluid">
+				<div class="span12">
+					<span class="label label-info" id="levelInfo">Cities</span> 
+					<span class="input-xlarge uneditable-input" id="compareFieldA">Compare...</span>
+					<span class="input-xlarge uneditable-input" id="compareFieldB">To...</span>
+					<button class="btn" id="comparebtn">Compare</button>
+					<button class="btn btn-danger" id="clearbtn">Clear</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row-fluid">
+		<div id="chartdiv" class="span12">
+			<div class="row" id="title_row">
+				<div id="titlediv" class="span12">
+					<span class="label label-inverse" id="area_title"></span>
+				</div>
+			</div>
+			<div class="row" id="chartrow">
+				<div id="piediv" class="span4"></div>
+				<div class="span4 checkboxes">
+					<div id="checkboxdiv"></div>
+				</div>
+				<div id="linediv" class="span4"></div>
+			</div>
+			<div class="row" id="matrixrow">
+				<div id="correlationdiv" class="span12"></div>
+			</div>
+			<div class="row" id="comparerow">
+				<div id="comparediv" class="span8"></div>
+				<div class="span4 checkboxes">
+					<div id="barcheckboxdiv"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- /container -->
+{% endblock %}
+{% block jslibs %}
+<script src="{{ STATIC_URL }}js/jquery-1.7.2.min.js"></script>
+<script src="{{ STATIC_URL }}js/jquery.livequery.min.js"></script>
+<script src="{{ STATIC_URL }}js/jquery.flot.min.js"></script>
+<script src="{{ STATIC_URL }}js/jquery.flot.pie.js"></script>
+<script src="{{ STATIC_URL }}js/jquery.flot.crosshair.js"></script>
+<script src="{{ STATIC_URL }}jqplot/jquery.jqplot.min.js"></script>
+<script src="{{ STATIC_URL }}jqplot/plugins/jqplot.barRenderer.min.js"></script>
+<script src="{{ STATIC_URL }}jqplot/plugins/jqplot.categoryAxisRenderer.min.js"></script>
+<script src="{{ STATIC_URL }}jqplot/plugins/jqplot.pointLabels.min.js"></script>
+<script src="{{ STATIC_URL }}leaflet.js"></script>
+<script src="{{ STATIC_URL }}bootstrap/js/bootstrap.js"></script>
+<script src="{{ STATIC_URL }}js/police.js"></script>
+{% endblock jslibs %}
